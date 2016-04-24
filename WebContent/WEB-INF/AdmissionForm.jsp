@@ -9,7 +9,7 @@
 <body>
 AdmissionForm
 
-<form:errors path="studentCustom.*"/>
+<form:errors path="student1.*"/>
 
 <form action="/FirstSpringMVCProject_07/submitAdmissionForm.html" method="post">
 	<!--<p>name <input type="text" name="studentName"></p>

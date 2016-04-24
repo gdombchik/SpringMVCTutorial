@@ -3,6 +3,8 @@ package com.gontuseries.studentadmissioncontroller;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,7 +30,7 @@ public class StudentAdmissionController {
 	
 	@InitBinder
 	public void initBinder(WebDataBinder binder){
-		binder.setDisallowedFields(new String[]{"mobile"});
+		//binder.setDisallowedFields(new String[]{"mobile"});
 		SimpleDateFormat dateFormat = new SimpleDateFormat("mm-dd-yyyy");
 		binder.registerCustomEditor(Date.class, "dob",new CustomDateEditor(dateFormat,false));
 		binder.registerCustomEditor(String.class,"name",new StudentNameEditor());
@@ -41,7 +43,7 @@ public class StudentAdmissionController {
 	
 	@RequestMapping(value="/submitAdmissionForm.html", method= RequestMethod.POST)
 	//public ModelAndView submitAdmissionForm(@RequestParam Map<String,String> reqPar){	
-	public ModelAndView submitAdmissionForm(@ModelAttribute("studentCustom") Student student,BindingResult result){	
+	public ModelAndView submitAdmissionForm(@Valid @ModelAttribute("student1") Student student,BindingResult result){	
 	
 		//String name = reqPar.get("studentName");
 		//String hobby = reqPar.get("studentHobby");

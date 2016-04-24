@@ -11,7 +11,7 @@
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 	
 
-  <!--<context:component-scan base-package="com.gontuseries.hellocontroller" /> -->
+  <!-- <context:component-scan base-package="com.gontuseries.hellocontroller" /> -->
   <context:component-scan base-package="com.gontuseries" />
  <mvc:annotation-driven/>
 
@@ -23,6 +23,10 @@
         <property name="suffix">
             <value>.jsp</value>
         </property>
+ </bean>
+
+ <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+ 	<property name="basename" value="/WEB-INF/studentmessages"/>
  </bean>
 
 
